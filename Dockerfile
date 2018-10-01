@@ -1,4 +1,3 @@
-# We will use Ubuntu for our image
 FROM continuumio/anaconda3
 
 ADD conda-env.yml /tmp/environment.yml
@@ -11,6 +10,6 @@ RUN echo "source activate $(head -1 /tmp/environment.yml | cut -d' ' -f2)" > ~/.
 ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
 
 RUN conda update --all
-RUN ./env-setup.sh env_dev_requirements.txt
+RUN env-setup.sh env_dev_requirements.txt
 
 
