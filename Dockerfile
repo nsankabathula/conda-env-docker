@@ -9,9 +9,21 @@ RUN conda env create -f /tmp/environment.yml
 RUN echo "source activate $(head -1 /tmp/environment.yml | cut -d' ' -f2)" > ~/.bashrc
 ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
 
-#RUN conda install pip
+RUN conda install pip
+#RUN conda update --all
+# Updating Anaconda packages
+RUN conda update conda
+RUN conda update anaconda
 RUN conda update --all
+
 #WORKDIR /tmp/
 #RUN ./env-setup.sh env_dev_requirements.txt
 
-
+# Configuring access to Jupyter
+RUN mkdir /opt/notebooks
+RUN jupyter notebook --generate-config --allow-root
+RUN echo "c.NotebookApp.password = u'sha1:6a3f528eec40:6e896b6e4828f525a6e20e5411cd1c8075d68619'" >> /root/.jupyter/jupyter_notebook_config.py
+# Jupyter listens port: 8888
+EXPOSE 8888
+# Run Jupytewr notebook as Docker main process
+CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
