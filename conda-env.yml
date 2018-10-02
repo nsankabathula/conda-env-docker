@@ -35,12 +35,15 @@ dependencies:
   - numpy=1.15.2=py36h1d66e8a_0
   - numpy-base=1.15.2=py36h81de0dd_0
   - openssl=1.0.2p=h14c3975_0
+  - pandas=0.23.4=py36h04863e7_0
   - plac=0.9.6=py36_0
   - preshed=1.0.1=py36he6710b0_0
   - pycparser=2.19=py36_0
   - pyopenssl=18.0.0=py36_0
   - pysocks=1.6.8=py36_0
   - python=3.6.6=hc3d631a_0
+  - python-dateutil=2.7.3=py36_0
+  - pytz=2018.5=py36_0
   - readline=7.0=h7b6447c_5
   - regex=2018.07.11=py36h14c3975_0
   - requests=2.19.1=py36_0
