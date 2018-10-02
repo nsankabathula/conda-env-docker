@@ -5,8 +5,8 @@ RUN conda install pip
 RUN conda update pip
 
 ADD conda-env.yml /tmp/environment.yml
-ADD *.sh /tmp/
-ADD *.txt /tmp/
+ADD start_jnotebook.sh /tmp/start_jnotebook.sh
+ADD env* /tmp/
 RUN conda env create -f /tmp/environment.yml
 
 #RUN conda create --name conda-env python=3.6
