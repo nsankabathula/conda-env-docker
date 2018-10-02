@@ -7,15 +7,25 @@ RUN conda update pip
 ADD conda-env.yml /tmp/environment.yml
 ADD start_jnotebook.sh /tmp/start_jnotebook.sh
 ADD env* /tmp/
-RUN conda env create -f /tmp/environment.yml
+#RUN conda env create -f /tmp/environment.yml
 
 #RUN conda create --name conda-env python=3.6
 # Pull the environment name out of the environment.yml
-RUN echo "source activate $(head -1 /tmp/environment.yml | cut -d' ' -f2)" > ~/.bashrc
-ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
+#RUN echo "source activate $(head -1 /tmp/environment.yml | cut -d' ' -f2)" > ~/.bashrc
+#ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
 
 #RUN conda config --set core.default_env $(head -1 /tmp/environment.yml | cut -d' ' -f2)
-
+RUN conda install --quiet --yes \
+    'python=3.6.6' && \
+    'pip=10.0.1' && \
+    'elasticsearch=6.3.1' && \
+    'numpy=1.15.2' && \
+    'pandas=0.23.4' && \
+    'nltk=3.3.0' && \
+    'spacy=2.0.12' 
+RUN conda install --quiet --yes -c conda-forge gensim    
+    
+    
 
 #RUN conda update --all
 # Updating Anaconda packages
@@ -34,7 +44,6 @@ RUN echo "c.NotebookApp.password = u'sha1:6a3f528eec40:6e896b6e4828f525a6e20e541
 # Jupyter listens port: 8888
 EXPOSE 8888
 # Run Jupytewr notebook as Docker main process
-#CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
-WORKDIR /tmp/
 #CMD ["start_jnotebook.sh"]
+CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
 
