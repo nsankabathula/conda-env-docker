@@ -20,12 +20,4 @@ dependencies:
   - wheel=0.31.1=py36_0
   - xz=5.2.4=h14c3975_4
   - zlib=1.2.11=ha838bed_2
-  - elasticsearch=5.4.0=py36hd132294_0
-  - nltk=3.2.4=py36h1a0979f_0
-  - numpy=1.14.2=py36hdbf6ddf_1
-  - numpy-base=1.14.5=py36hdbf6ddf_0
-  - openssl=1.0.2o=h20670df_0
-  - pandas=0.23.3=py36h04863e7_0
-  - spacy=2.0.11=py36h04863e7_2
-  - gensim=3.5.0=py36_0
 prefix: /home/ubuntu/anaconda3/envs/conda-env
