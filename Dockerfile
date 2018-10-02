@@ -17,8 +17,8 @@ ENV PATH /opt/conda/envs/$(head -1 /tmp/env-conda.yml | cut -d' ' -f2)/bin:$PATH
 #RUN ./tmp/env-setup.sh /tmp/env-requirements.txt
 RUN /bin/bash -c "source activate $(head -1 /tmp/env-conda.yml | cut -d' ' -f2)"
 
-RUN ./scripts/download_nltk.sh
-RUN ./scripts/download_spacy_models.sh
+RUN ./scripts/download_nltk.sh $(head -1 /tmp/env-conda.yml | cut -d' ' -f2)
+RUN ./scripts/download_spacy_models.sh $(head -1 /tmp/env-conda.yml | cut -d' ' -f2)
 
 # Configuring access to Jupyter
 RUN mkdir /home/src
