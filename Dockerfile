@@ -37,3 +37,4 @@ EXPOSE 8888
 #CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
 WORKDIR /tmp/
 RUN ./start_jnotebook.sh
+
