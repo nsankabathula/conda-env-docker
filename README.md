@@ -16,3 +16,4 @@ This starts jupyter notebook on http://localhost:8888. Use root as password.
 ./docker_scripts/enter.sh
 
 
+Testing auto build
