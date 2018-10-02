@@ -36,5 +36,5 @@ EXPOSE 8888
 # Run Jupytewr notebook as Docker main process
 #CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
 WORKDIR /tmp/
-CMD ["start_jnotebook.sh"]
+#CMD ["start_jnotebook.sh"]
 
