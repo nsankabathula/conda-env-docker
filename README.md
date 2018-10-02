@@ -1,9 +1,15 @@
-# conda-env-docker
+# Docker container with Python Environment
 
-docker build --force-rm --rm -t condatest .
+## Build 
+./docker_scripts/build.sh
 
-docker run -it condatest
+## Run 
+### Start
+./docker_scripts/run.sh
+### Stop
+./docker_scripts/stop.sh
 
-docker run --name conda-env-test -p 8888:8888 -v "$PWD/src:/home/src" -d condatest
+## Check Container
+./docker_scripts/enter.sh
 
-docker run -it conda-env-test /bin/bash
+
