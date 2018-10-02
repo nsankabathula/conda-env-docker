@@ -1,8 +1,12 @@
 #FROM continuumio/anaconda3
 FROM continuumio/miniconda3
 
-ADD conda-env.yml /tmp/environment.yml
-ADD env* /tmp/
+
+ADD /env/ /tmp/
+ADD /scripts/ /scripts/
+
+#RUN /bin/bash -c "mv /tmp/env-conda.yml /tmp/environment.yml"
+
 #RUN conda env create -f /tmp/environment.yml
 
 #RUN conda create --name conda-env python=3.6
@@ -12,7 +16,10 @@ ADD env* /tmp/
 
 #RUN conda config --set core.default_env $(head -1 /tmp/environment.yml | cut -d' ' -f2)
 
-RUN ./tmp/env-setup.sh /tmp/env_dev_requirements.txt
+RUN ./tmp/env-setup.sh /tmp/env-requirements.txt
+
+RUN ./scripts/download_nltk.sh
+RUN ./scripts/download_spacy_models.sh
 
 # Configuring access to Jupyter
 RUN mkdir /home/src
