@@ -1,6 +1,5 @@
 python=3.6.6
 elasticsearch==5.4.0
-gensim==3.5.0
 matplotlib==2.2.2
 nltk==3.2.4
 numpy==1.14.5
