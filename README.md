@@ -1,6 +1,6 @@
 # conda-env-docker
 
-docker build -t condatest .
+docker build --force-rm --rm -t condatest .
 
 docker run -it condatest
 
