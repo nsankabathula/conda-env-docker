@@ -1,8 +1,5 @@
 #FROM continuumio/anaconda3
 FROM continuumio/miniconda3
-RUN conda install nb_conda
-RUN conda install pip
-RUN conda update pip
 
 ADD conda-env.yml /tmp/environment.yml
 ADD env* /tmp/
