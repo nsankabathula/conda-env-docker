@@ -1,7 +1,9 @@
 #!/bin/bash
 
 if [ -n "$1" ]
+then
   source activate $1
+fi
 
 #python -m spacy download en_core_web_lg
 python -m spacy download en_core_web_sm
