@@ -16,11 +16,11 @@ ADD env* /tmp/
 
 #RUN conda config --set core.default_env $(head -1 /tmp/environment.yml | cut -d' ' -f2)
 RUN conda install --quiet --yes 'python=3.6.6' && \    
-    'pip=10.0.1' && \
-    'elasticsearch=6.3.1' && \
-    'numpy=1.15.2' && \
-    'pandas=0.23.4' && \
-    'nltk=3.3.0' && \
+    'pip=10.0.1' \
+    'elasticsearch=6.3.1' \
+    'numpy=1.15.2' \
+    'pandas=0.23.4' \
+    'nltk=3.3.0' \
     'spacy=2.0.12' 
 RUN conda install --quiet --yes -c conda-forge gensim    
     
