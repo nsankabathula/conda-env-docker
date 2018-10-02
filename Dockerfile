@@ -15,7 +15,7 @@ ADD env* /tmp/
 #ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
 
 #RUN conda config --set core.default_env $(head -1 /tmp/environment.yml | cut -d' ' -f2)
-RUN conda install --quiet --yes \
+RUN conda install --quiet --yes && \
     'python=3.6.6' && \
     'pip=10.0.1' && \
     'elasticsearch=6.3.1' && \
