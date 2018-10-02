@@ -1,5 +1,6 @@
 #!/bin/bash
 
-source activate $1
+if [ -n "$1" ]
+  source activate $1
 
 python -m nltk.downloader all
