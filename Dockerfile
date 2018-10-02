@@ -16,8 +16,6 @@ ADD env* /tmp/
 #RUN conda config --set core.default_env $(head -1 /tmp/environment.yml | cut -d' ' -f2)
 
 RUN ./tmp/env-setup.sh /tmp/env_dev_requirements.txt
-RUN conda install --quiet --yes -c conda-forge gensim    
-    
 
 # Configuring access to Jupyter
 RUN mkdir /home/src
