@@ -5,7 +5,8 @@ RUN conda install pip
 RUN conda update pip
 
 ADD conda-env.yml /tmp/environment.yml
-ADD env*.* /tmp/
+ADD *.sh /tmp/
+ADD *.txt /tmp/
 RUN conda env create -f /tmp/environment.yml
 
 #RUN conda create --name conda-env python=3.6
@@ -23,7 +24,7 @@ RUN conda config --set core.default_env $(head -1 /tmp/environment.yml | cut -d'
 #RUN conda update --all
 
 #WORKDIR /tmp/
-RUN ./tmp/env-setup.sh /tmp/env_dev_requirements.txt
+#RUN ./tmp/env-setup.sh /tmp/env_dev_requirements.txt
 
 
 # Configuring access to Jupyter
@@ -33,4 +34,5 @@ RUN echo "c.NotebookApp.password = u'sha1:6a3f528eec40:6e896b6e4828f525a6e20e541
 # Jupyter listens port: 8888
 EXPOSE 8888
 # Run Jupytewr notebook as Docker main process
-CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
+#CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/opt/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
+RUN ./tmp/start_jnotebook.sh
