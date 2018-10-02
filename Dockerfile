@@ -10,10 +10,12 @@ RUN echo "source activate $(head -1 /tmp/environment.yml | cut -d' ' -f2)" > ~/.
 ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
 
 RUN conda install pip
+RUN conda update pip
+RUN conda install nb_conda
 #RUN conda update --all
 # Updating Anaconda packages
-RUN conda update conda
-RUN conda update anaconda
+#RUN conda update conda
+#RUN conda update anaconda
 RUN conda update --all
 
 #WORKDIR /tmp/
