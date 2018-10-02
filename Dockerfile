@@ -18,7 +18,7 @@ RUN conda update --all
 
 #WORKDIR /tmp/
 #RUN ./env-setup.sh env_dev_requirements.txt
-
+RUN source activate $(head -1 /tmp/environment.yml | cut -d' ' -f2)
 # Configuring access to Jupyter
 RUN mkdir /opt/notebooks
 RUN jupyter notebook --generate-config --allow-root
