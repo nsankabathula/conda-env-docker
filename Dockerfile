@@ -2,7 +2,7 @@
 FROM continuumio/miniconda3
 
 ADD conda-env.yml /tmp/environment.yml
-#ADD env*.* /tmp/
+ADD env*.* /tmp/
 RUN conda env create -f /tmp/environment.yml
 
 #RUN conda create --name conda-env python=3.6
