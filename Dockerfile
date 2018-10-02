@@ -1,5 +1,8 @@
 #FROM continuumio/anaconda3
 FROM continuumio/miniconda3
+RUN conda install nb_conda
+RUN conda install pip
+RUN conda update pip
 
 ADD conda-env.yml /tmp/environment.yml
 ADD env*.* /tmp/
@@ -10,18 +13,16 @@ RUN conda env create -f /tmp/environment.yml
 RUN echo "source activate $(head -1 /tmp/environment.yml | cut -d' ' -f2)" > ~/.bashrc
 ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
 
-RUN conda install pip
-RUN conda update pip
-RUN conda install nb_conda
+
 #RUN conda update --all
 # Updating Anaconda packages
 #RUN conda update conda
 #RUN conda update anaconda
-RUN conda update --all
+#RUN conda update --all
 
 #WORKDIR /tmp/
-RUN ./env-setup.sh env_dev_requirements.txt
-ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PATH
+RUN ./tmp/env-setup.sh /tmp/env_dev_requirements.txt
+
 
 # Configuring access to Jupyter
 RUN mkdir /opt/notebooks
