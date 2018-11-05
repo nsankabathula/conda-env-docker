@@ -20,7 +20,7 @@ RUN ./tmp/env-setup.sh /tmp/env-requirements.txt
 
 #RUN conda install jupyter
 
-RUN ./scripts/download_nltk.sh 
+# RUN ./scripts/download_nltk.sh 
 RUN ./scripts/download_spacy_models.sh 
 
 # Configuring access to Jupyter
